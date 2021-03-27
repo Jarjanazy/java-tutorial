@@ -3,7 +3,7 @@ package lombokTutorial.withoutLombok;
 import lombokTurorial.withoutLombok.Human;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class Tests {
 
@@ -25,6 +25,19 @@ public class Tests {
                 ageInYears(30);
 
         assertEquals("Id: 2, name: Omar, age in years: 30", human.toString());
+    }
+
+    @Test
+    void equalsTest(){
+        Human human1 = new Human(4).name("jhon").ageInYears(4);
+        Human human2 = new Human(5).name("jhon").ageInYears(4);
+        assertTrue(human1.equals(human2));
+    }
+
+    @Test
+    void equalsTestWhenOtherIsNull(){
+        Human human1 = new Human(4).name("jhon").ageInYears(4);
+        assertFalse(human1.equals(null));
     }
 
 }

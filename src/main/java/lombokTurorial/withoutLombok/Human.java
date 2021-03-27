@@ -51,4 +51,12 @@ public class Human {
                 this.id, this.name, this.ageInYears);
     }
 
+    @Override
+    public boolean equals(Object other){
+        if (other == null) return false;
+        if (!(other instanceof Human)) return false;
+
+        Human otherHuman = (Human) other;
+        return this.name.equals(otherHuman.getName()) && this.ageInYears == otherHuman.getAgeInYears();
+    }
 }
