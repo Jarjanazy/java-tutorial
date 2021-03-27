@@ -4,6 +4,7 @@ public class Human {
     private final int id;
     private String name;
     private int ageInYears;
+    private String complexThing;
 
     public Human(int id) {
         this.id = id;
@@ -13,6 +14,19 @@ public class Human {
         this.id = id;
         this.name = name;
         this.ageInYears = ageInYears;
+    }
+
+    public String getComplexThing() {
+        try {
+            if (this.complexThing == null){
+                // complex calculation
+                Thread.sleep(3000);
+                this.complexThing = "complex string";
+            }
+            return this.complexThing;
+        }catch (Exception e){
+            return "";
+        }
     }
 
     public int getId() {

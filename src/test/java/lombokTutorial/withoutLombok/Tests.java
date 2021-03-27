@@ -40,4 +40,13 @@ public class Tests {
         assertFalse(human1.equals(null));
     }
 
+    @Test
+    void cachingTest(){
+        Human human = new Human(2);
+        assertEquals("complex string", human.getComplexThing());
+        assertEquals("complex string", human.getComplexThing());
+        assertEquals("complex string", human.getComplexThing());
+        assertEquals("complex string", human.getComplexThing());
+    }
+
 }
