@@ -35,4 +35,14 @@ public class Human {
     public void setAgeInYears(int ageInYears) {
         this.ageInYears = ageInYears;
     }
+
+    public Human name(String name){
+        this.name = name;
+        return this;
+    }
+    public Human ageInYears(int ageInYears){
+        this.ageInYears = ageInYears;
+        return this;
+    }
+
 }
