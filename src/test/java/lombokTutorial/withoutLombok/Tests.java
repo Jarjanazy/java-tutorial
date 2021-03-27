@@ -18,4 +18,13 @@ public class Tests {
         assertEquals(20, human.getAgeInYears());
     }
 
+    @Test
+    void toStringTest(){
+        Human human = new Human(2).
+                name("Omar").
+                ageInYears(30);
+
+        assertEquals("Id: 2, name: Omar, age in years: 30", human.toString());
+    }
+
 }

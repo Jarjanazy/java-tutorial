@@ -45,4 +45,10 @@ public class Human {
         return this;
     }
 
+    @Override
+    public String toString(){
+        return String.format("Id: %s, name: %s, age in years: %s",
+                this.id, this.name, this.ageInYears);
+    }
+
 }
