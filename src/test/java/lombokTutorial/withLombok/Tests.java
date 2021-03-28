@@ -1,13 +1,10 @@
-package lombokTutorial.withoutLombok;
+package lombokTutorial.withLombok;
 
-import lombokTurorial.withoutLombok.ComplexHuman;
-import lombokTurorial.withoutLombok.Human;
+import lombokTurorial.withLombok.Human;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Tests {
-
     @Test
     void constructorTest(){
         Human human = new Human(22, "Mark", 25);
@@ -18,10 +15,11 @@ public class Tests {
 
     @Test
     void builderPatternTest(){
-        Human human = new Human().
+        Human human = Human.builder().
                 id(1).
                 name("Ahmed").
-                ageInYears(20);
+                ageInYears(20).
+                build();
 
         assertEquals(1, human.getId());
         assertEquals("Ahmed", human.getName());
@@ -30,22 +28,13 @@ public class Tests {
 
     @Test
     void toStringTest(){
-        Human human = new Human().
+        Human human = Human.builder().
                 id(2).
                 name("Omar").
-                ageInYears(30);
+                ageInYears(30).
+                build();
 
         assertEquals("Human(id=2, name=Omar, ageInYears=30)", human.toString());
-    }
-
-
-    @Test
-    void cachingTest(){
-        ComplexHuman human = new ComplexHuman();
-        assertEquals("complex string", human.getComplexThing());
-        assertEquals("complex string", human.getComplexThing());
-        assertEquals("complex string", human.getComplexThing());
-        assertEquals("complex string", human.getComplexThing());
     }
 
 }
