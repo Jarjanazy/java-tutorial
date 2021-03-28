@@ -1,6 +1,5 @@
 package lombokTutorial.withoutLombok;
 
-import lombokTurorial.withoutLombok.ComplexHuman;
 import lombokTurorial.withoutLombok.Human;
 import org.junit.jupiter.api.Test;
 
@@ -37,15 +36,4 @@ public class Tests {
 
         assertEquals("Human(id=2, name=Omar, ageInYears=30)", human.toString());
     }
-
-
-    @Test
-    void cachingTest(){
-        ComplexHuman human = new ComplexHuman();
-        assertEquals("complex string", human.getComplexThing());
-        assertEquals("complex string", human.getComplexThing());
-        assertEquals("complex string", human.getComplexThing());
-        assertEquals("complex string", human.getComplexThing());
-    }
-
 }
