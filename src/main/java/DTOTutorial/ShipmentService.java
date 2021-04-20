@@ -1,5 +1,8 @@
 package DTOTutorial;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class ShipmentService {
 
     private final ShipmentRepository shipmentRepository;
@@ -20,6 +23,17 @@ public class ShipmentService {
                 getShipmentById(id).
                 map(this::getShipment_AdminDTO_FromShipment).
                 orElseThrow(() -> new RuntimeException("Shipment Not Found"));
+    }
+
+    public Shipments_AdminDTO getShipments_ForAdmin(){
+        List<Shipment_AdminDTO> shipment_adminDTOS =
+                shipmentRepository.
+                getAllShipments().
+                stream().
+                map(this::getShipment_AdminDTO_FromShipment).
+                collect(Collectors.toList());
+
+        return new Shipments_AdminDTO(shipment_adminDTOS);
     }
 
 

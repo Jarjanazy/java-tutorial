@@ -22,4 +22,8 @@ public class ShipmentRepository {
                 findAny();
     }
 
+    public List<Shipment> getAllShipments(){
+        return this.shipments;
+    }
+
 }
