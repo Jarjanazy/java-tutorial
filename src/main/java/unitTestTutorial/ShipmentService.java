@@ -24,7 +24,7 @@ public class ShipmentService {
         shipmentRepository.save(shipment);
     }
 
-    private boolean shipmentExistInDB(String owner, String productCode) {
+    public boolean shipmentExistInDB(String owner, String productCode) {
         return shipmentRepository.findShipment(owner, productCode).isPresent();
     }
 
