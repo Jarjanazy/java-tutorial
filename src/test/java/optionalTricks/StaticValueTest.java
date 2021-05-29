@@ -8,28 +8,27 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@ExtendWith(MockitoExtension.class)
-public class LegacyCodeTrick {
+public class StaticValueTest {
 
     @Test
-    public void test(){
-        assertEquals("It's empty", doThing());
-        assertEquals("It's empty", doThingWithTrick());
+    public void staticValueTest(){
+        assertEquals("It's empty", getString());
+        assertEquals("It's empty", getStringWithTrick());
     }
 
-    private String doThingWithTrick() {
-        return Optional.ofNullable(getResult()).orElse("It's empty");
+    private String getStringWithTrick() {
+        return Optional.ofNullable(getStringFromDB()).orElse("It's empty");
     }
 
-    private String doThing() {
-        String result = getResult();
+    private String getString() {
+        String result = getStringFromDB();
         if (result == null)
             return "It's empty";
         else
             return result;
     }
 
-    private String getResult() {
+    private String getStringFromDB() {
         return null;
     }
 }
