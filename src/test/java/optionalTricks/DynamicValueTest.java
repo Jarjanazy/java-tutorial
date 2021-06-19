@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class DynamicValueTest {
 
@@ -16,6 +17,13 @@ public class DynamicValueTest {
     @Test
     public void dynamicValueWithTrickTest(){
         assertEquals("hmm It's empty", getStringWithTrick());
+    }
+
+    @Test
+    public void t(){
+        String t = null;
+        assertFalse("hey".equals(null)); // returns false
+        assertFalse(t.equals("hey")); // throws null pointer exception
     }
 
     private String getStringWithTrick() {
